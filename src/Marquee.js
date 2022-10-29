@@ -1,20 +1,13 @@
-import { motion } from "framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 
 export default function Marquee(props) {
-  const {
-    itemSize,
-    gap,
-    items,
-    speed,
-    bgColorStart,
-    bgColorEnd,
-    shadowWidth
-  } = props;
+  const { itemSize, gap, items, speed, bgColorStart, bgColorEnd, shadowWidth } =
+    props;
 
   const marqueeContainer = {
     display: "flex",
     gap: gap,
-    width: "fit-content"
+    width: "fit-content",
   };
 
   const edgeStyle = {
@@ -22,14 +15,14 @@ export default function Marquee(props) {
     top: 0,
     right: 0,
     width: shadowWidth,
-    height: itemSize
+    height: itemSize,
   };
 
   const itemStyle = {
     overflow: "hidden",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   };
 
   return (
@@ -40,7 +33,7 @@ export default function Marquee(props) {
         transition={{
           ease: "linear",
           duration: speed,
-          repeat: "Infinity"
+          repeat: "Infinity",
         }}
       >
         {props.items.map((item) => {
@@ -54,14 +47,14 @@ export default function Marquee(props) {
         style={{
           ...edgeStyle,
           background: `linear-gradient(90deg, ${bgColorStart} 0%, ${bgColorEnd} 100%)`,
-          left: 0
+          left: 0,
         }}
       ></div>
       <div
         style={{
           ...edgeStyle,
           background: `linear-gradient(90deg, ${bgColorEnd} 0%, ${bgColorStart} 100%)`,
-          right: 0
+          right: 0,
         }}
       ></div>
     </div>
