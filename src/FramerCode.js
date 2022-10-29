@@ -4,20 +4,13 @@ import { motion } from "framer-motion";
 import { addPropertyControls, ControlType } from "framer";
 
 export default function Marquee(props) {
-  const {
-    itemSize,
-    gap,
-    items,
-    speed,
-    bgColorStart,
-    bgColorEnd,
-    shadowWidth
-  } = props;
+  const { itemSize, gap, items, speed, bgColorStart, bgColorEnd, shadowWidth } =
+    props;
 
   const marqueeContainer = {
     display: "flex",
     gap: gap,
-    width: "fit-content"
+    width: "fit-content",
   };
 
   const edgeStyle = {
@@ -25,7 +18,7 @@ export default function Marquee(props) {
     top: 0,
     right: 0,
     width: shadowWidth,
-    height: itemSize
+    height: itemSize,
   };
 
   return (
@@ -36,7 +29,7 @@ export default function Marquee(props) {
         transition={{
           ease: "linear",
           duration: speed,
-          repeat: "Infinity"
+          repeat: "Infinity",
         }}
       >
         {props.items.map((item) => {
@@ -50,14 +43,14 @@ export default function Marquee(props) {
         style={{
           ...edgeStyle,
           background: `linear-gradient(90deg, ${bgColorStart} 0%, ${bgColorEnd} 100%)`,
-          left: 0
+          left: 0,
         }}
       ></div>
       <div
         style={{
           ...edgeStyle,
           background: `linear-gradient(90deg, ${bgColorEnd} 0%, ${bgColorStart} 100%)`,
-          right: 0
+          right: 0,
         }}
       ></div>
     </div>
@@ -69,38 +62,38 @@ const itemStyle = {
   borderRadius: "100%",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center"
+  justifyContent: "center",
 };
 
 addPropertyControls(Marquee, {
   itemSize: {
     type: ControlType.Number,
-    defaultValue: 160
+    defaultValue: 160,
   },
   gap: {
     type: ControlType.Number,
-    defaultValue: 20
+    defaultValue: 20,
   },
   speed: {
     type: ControlType.Number,
-    defaultValue: 20
+    defaultValue: 20,
   },
   items: {
     type: ControlType.Array,
     control: {
-      type: ControlType.ComponentInstance
-    }
+      type: ControlType.ComponentInstance,
+    },
   },
   shadowWidth: {
     type: ControlType.Number,
-    defaultValue: 120
+    defaultValue: 120,
   },
   bgColorStart: {
     type: ControlType.Color,
-    defaultValue: "rgba(255, 255, 255, 1)"
+    defaultValue: "rgba(255, 255, 255, 1)",
   },
   bgColorEnd: {
     type: ControlType.Color,
-    defaultValue: "rgba(255, 255, 255, 0)"
-  }
+    defaultValue: "rgba(255, 255, 255, 0)",
+  },
 });
